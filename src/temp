@@ -1,0 +1,13 @@
+
+https://api.instagram.com/oauth/authorize?app_id=2510132262600614
+&redirect_uri=https://instascrap-6263d.firebaseapp.com/&scope=user_profile,user_media&response_type=code
+
+curl -X POST \
+  https://api.instagram.com/oauth/access_token \
+  -d app_id=2510132262600614 \
+  -d app_secret=d3cc3609837dc1d2249cd92b6d336f38 \
+  -d grant_type=authorization_code \
+  -d redirect_uri=https://instascrap-6263d.firebaseapp.com/Auth \
+  -d code=AQBjzlYLVdyUgZIDqfkQ9ACxsl1rlraNAcy_DI_sz5ttkKthxbFA2V6JiLcFjfNFgjv0uT6HbvpCFN1TuKcXQwQBNm_ZODgA6UNSQ13XtCmbgZhj2798yUuP_20wxe8owcpd1uGxST2XagWjdPwIglDJdLxVEijLcmuwQRJXT9CE6oaLrKSXZyjzHFp3iUJRw6nPWQOTeH-JQBlNfjLe8P6XPb72nYIqn5ElNzYKeh6ipQ
+
+  {"access_token": "IGQVJWai1VdXZAwS1lpWHc0a0FJOTVKMm5LSXA2WS1VTnNJaG81aW50UlZARU01CcjRIb1g3NDJqc291UVkwQWpCVjVhVV9SVXVDMEk5dmxjU2g5ZAlBDOEpMSlBvXy05dzZA3a3d4ZA2JYb3dlbU0zd0lUUDRGdm5BMFNiQlpr", "user_id": 17841403414973752}
