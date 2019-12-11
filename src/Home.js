@@ -11,7 +11,7 @@ const Home = () => {
           );
         }}
       >
-        {" "}
+        Sign in with Instagram
       </button>
     </div>
   );

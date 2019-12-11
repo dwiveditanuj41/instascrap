@@ -4,9 +4,9 @@ const Cards = ({ data }) => {
   console.log(data);
   return (
     <Card
-      image={data.mapValue.fields.media_url}
-      header={data.mapValue.fields.username}
-      description={data.mapValue.fields.caption}
+      image={data.mapValue.fields.media_url.stringValue}
+      header={data.mapValue.fields.username.stringValue}
+      description={data.mapValue.fields.caption.stringValue}
     />
   );
 };
