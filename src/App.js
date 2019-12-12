@@ -3,10 +3,12 @@ import { Route, Switch, BrowserRouter } from "react-router-dom";
 import Home from "./Home";
 import Website from "./Website";
 import Auth from "./Auth";
+import Navbar from "./Navbar";
 
 function App() {
   return (
     <React.Fragment>
+      <Navbar />
       <BrowserRouter>
         <Switch>
           <Route path="/" exact component={Home} />

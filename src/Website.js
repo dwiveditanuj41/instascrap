@@ -1,19 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { db } from "./Config";
 import styled from "styled-components";
-import { Grid, Card } from "semantic-ui-react";
-import Cards from "./Cards";
-
-const renderCard = data => {
-  return (
-    <Grid>
-      <Cards data={data} />
-    </Grid>
-  );
-};
+import { Grid } from "semantic-ui-react";
 
 const Website = props => {
   const [data, setData] = useState(null);
+
   console.log(data);
 
   useEffect(() => {
@@ -29,17 +21,20 @@ const Website = props => {
       {(() => {
         if (data) {
           return (
-            <Grid columns={4} divided>
+            <Grid columns={8} divided>
               {Object.keys(data).map((key, item) => {
                 return (
                   <Grid.Column>
-                    <StyledCard
-                      image={data[key].mapValue.fields.media_url.stringValue}
-                      header={data[key].mapValue.fields.username.stringValue}
-                      description={
-                        data[key].mapValue.fields.caption.stringValue
-                      }
+                    <StyledImage
+                      src={data[key].mapValue.fields.media_url.stringValue}
                     />
+                    <StyledContent>
+                      {" "}
+                      <b>
+                        {data[key].mapValue.fields.username.stringValue}
+                      </b>{" "}
+                      {data[key].mapValue.fields.caption.stringValue}
+                    </StyledContent>
                   </Grid.Column>
                 );
               })}
@@ -56,7 +51,19 @@ const Website = props => {
 
 export default Website;
 
-const StyledCard = styled(Card)`
-  width: 0.05em;
-  height: 20em;
+const StyledImage = styled.img`
+  display: block;
+  max-width: 60%;
+  height: auto;
+  border: 12px solid white;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 3px 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+`;
+
+const StyledContent = styled.p`
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  align: center;
 `;
