@@ -59,7 +59,7 @@ const Auth = () => {
         console.log(response);
       });
 
-    return <div>{userData.data.user_id}</div>;
+    return <div>loading...</div>;
   }
 
   if (media) {
