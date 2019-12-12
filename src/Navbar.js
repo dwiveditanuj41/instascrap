@@ -15,18 +15,23 @@ const Navbar = () => {
     toast.success("Link Copied");
   };
   return (
-    <Menu>
-      <Menu.Item>
-        <StyledButton
-          onClick={() => {
-            copyToClipboard(window.location.href);
-          }}
-        >
-          {" "}
-          Copy Link
-        </StyledButton>
-      </Menu.Item>
-    </Menu>
+    <React.Fragment>
+      <hr />
+
+      <Menu>
+        <Menu.Item>
+          <StyledButton
+            onClick={() => {
+              copyToClipboard(window.location.href);
+            }}
+          >
+            {" "}
+            Copy Link
+          </StyledButton>
+        </Menu.Item>
+        <StyledHeader> Welcome to InstaScrape</StyledHeader>
+      </Menu>
+    </React.Fragment>
   );
 };
 
@@ -44,6 +49,10 @@ const StyledButton = styled(Button)`
   text-decoration: none;
   cursor: pointer;
   position: fixed;
+`;
+
+const StyledHeader = styled.h1`
+  margin-left: 40%;
 `;
 
 export default Navbar;

@@ -3,6 +3,7 @@ import { db } from "./Config";
 import styled from "styled-components";
 import { Grid } from "semantic-ui-react";
 
+import Navbar from "./Navbar";
 const Website = props => {
   const [data, setData] = useState(null);
 
@@ -18,6 +19,9 @@ const Website = props => {
 
   return (
     <React.Fragment>
+      <Navbar />
+      <br /> <br />
+      <br /> <br />
       {(() => {
         if (data) {
           return (
@@ -25,9 +29,6 @@ const Website = props => {
               {Object.keys(data).map((key, item) => {
                 return (
                   <Grid.Column>
-                    <StyledImage
-                      src={data[key].mapValue.fields.media_url.stringValue}
-                    />
                     <StyledContent>
                       {" "}
                       <b>
@@ -35,6 +36,11 @@ const Website = props => {
                       </b>{" "}
                       {data[key].mapValue.fields.caption.stringValue}
                     </StyledContent>
+                    <StyledImage
+                      src={data[key].mapValue.fields.media_url.stringValue}
+                    />
+                    <br />
+                    <hr />
                   </Grid.Column>
                 );
               })}

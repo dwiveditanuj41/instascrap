@@ -8,7 +8,6 @@ import Navbar from "./Navbar";
 function App() {
   return (
     <React.Fragment>
-      <Navbar />
       <BrowserRouter>
         <Switch>
           <Route path="/" exact component={Home} />
