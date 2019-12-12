@@ -7,7 +7,7 @@ import Navbar from "./Navbar";
 const Website = props => {
   const [data, setData] = useState(null);
 
-  console.log(data);
+  // console.log(data);
 
   useEffect(() => {
     db.collection("users")
@@ -27,22 +27,34 @@ const Website = props => {
           return (
             <Grid columns={8} divided>
               {Object.keys(data).map((key, item) => {
-                return (
-                  <Grid.Column>
-                    <StyledContent>
-                      {" "}
-                      <b>
-                        {data[key].mapValue.fields.username.stringValue}
-                      </b>{" "}
-                      {data[key].mapValue.fields.caption.stringValue}
-                    </StyledContent>
-                    <StyledImage
-                      src={data[key].mapValue.fields.media_url.stringValue}
-                    />
-                    <br />
-                    <hr />
-                  </Grid.Column>
-                );
+                if (
+                  data[key].mapValue.fields.media_type.stringValue === "IMAGE"
+                ) {
+                  console.log(data[key]);
+                  return (
+                    <Grid.Column>
+                      <StyledContent>
+                        {" "}
+                        <b>
+                          {data[key].mapValue.fields.username &&
+                          data[key].mapValue.fields.username.stringValue
+                            ? data[key].mapValue.fields.username.stringValue
+                            : ""}
+                        </b>{" "}
+                        {data[key].mapValue.fields.caption &&
+                        data[key].mapValue.fields.caption.stringValue
+                          ? data[key].mapValue.fields.caption.stringValue
+                          : ""}
+                      </StyledContent>
+                      <StyledImage
+                        src={data[key].mapValue.fields.media_url.stringValue}
+                      />
+                      <br />
+                      <hr />
+                    </Grid.Column>
+                  );
+                }
+                return null;
               })}
             </Grid>
           );
