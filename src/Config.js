@@ -3,14 +3,14 @@ import "firebase/firestore";
 import "firebase/auth";
 
 const config = {
-  apiKey: "AIzaSyA1Dh0i-oup8DHhN213hlSp4WJa8OpUpCo",
-  authDomain: "trafficpro-6d3ae.firebaseapp.com",
-  databaseURL: "https://trafficpro-6d3ae.firebaseio.com",
-  projectId: "trafficpro-6d3ae",
-  storageBucket: "trafficpro-6d3ae.appspot.com",
-  messagingSenderId: "250198439000",
-  appId: "1:250198439000:web:22b8488554e7c78b9d462d",
-  measurementId: "G-X9KN3GW8XX"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTHDOMIN,
+  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
 
 firebase.initializeApp(config);

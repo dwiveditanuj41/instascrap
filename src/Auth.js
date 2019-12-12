@@ -17,18 +17,15 @@ const Auth = () => {
     const values = queryString.parse(window.location.search);
 
     var bodyFormData = new FormData();
-    bodyFormData.set("app_id", "2510132262600614");
-    bodyFormData.set("app_secret", "d3cc3609837dc1d2249cd92b6d336f38");
+    bodyFormData.set("app_id", process.env.REACT_APP_ID);
+    bodyFormData.set("app_secret", process.env.REACT_APP_SECRET_KEY);
     bodyFormData.set("grant_type", "authorization_code");
-    bodyFormData.set(
-      "redirect_uri",
-      "https://instascrap-6263d.firebaseapp.com/Auth"
-    );
+    bodyFormData.set("redirect_uri", process.env.REACT_APP_REDIRECT_AUTH);
     bodyFormData.set("code", values.code);
 
     axios({
       method: "post",
-      url: "https://api.instagram.com/oauth/access_token",
+      url: process.env.REACT_APP_POST_URL,
       data: bodyFormData,
       headers: { "Content-Type": "multipart/form-data" }
     })
@@ -44,7 +41,7 @@ const Auth = () => {
   if (userData && !media) {
     axios({
       method: "get",
-      url: `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,username&access_token=${userData.data.access_token}`
+      url: proecess.env.REACT_APP_GET_URL + `${userData.data.access_token}`
     })
       .then(async response => {
         const responseObject = arrayToObject(response.data.data);
